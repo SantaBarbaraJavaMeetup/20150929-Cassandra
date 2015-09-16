@@ -26,7 +26,7 @@ public class SelectUsers {
 
             // Find users born on a certain day
             ResultSet rs = session.execute("SELECT fullname FROM meetupdemo.users_birthdays WHERE birthmonth=? and birthday=?", 1, 1);
-            System.out.println("Users born on 1/1: " + rs.all().stream().map(r -> r.getString("fullname")).collect(Collectors.joining(",")));
+            System.out.println("Users born on 1/1: " + rs.all().stream().map(r -> r.getString("fullname")).collect(Collectors.joining(", ")));
 
             // Find 3 most recent messages from Joe Schmoe, leveraging the DESC sort order defined in the schema.
             // Use an iterator for large results - it will fetch results in batches rather than holding all in memory.
